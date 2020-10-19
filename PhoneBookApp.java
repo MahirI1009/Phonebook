@@ -17,7 +17,7 @@ import java.util.*;
  * Name object is the Key, while the PhoneBookEntry object is the value. So within the first class of this file, an input file is read in which then creates individual 
  * PhoneBookEntry classes, and then each entry is added to a TreeMap within the Phonebook class, the program asks the user to enter a name to look up and then searches the 
  * TreeMap for the name that was entered as that is the Key in the Key, Value pair, and if the Key is found then the number is returned. This project is thus a neat implem-
- * entation of various techniques of OOP and the TreeMap data structure to create a nice Phonebook Application. */
+ * entation of various techniques of OOP such as aggregation, inheritance and polymorphism as well as the TreeMap data structure to create a nice Phonebook Application. */
 
 public class PhoneBookApp {
 		
@@ -133,27 +133,27 @@ class PhoneNumber {
 
 class ExtendedPhoneNumber extends PhoneNumber {
 	
-	private String description;
+     private String description;
 
-	public ExtendedPhoneNumber(String description, String number) {
-        	super(number);
-	        this.description = description;
-	}
+     public ExtendedPhoneNumber(String description, String number) {
+        super(number);
+	this.description = description;
+     }
 
-    	public ExtendedPhoneNumber(ExtendedPhoneNumber old) {
-       		super(old);
-        	this.description = old.description;
-    	}
+    public ExtendedPhoneNumber(ExtendedPhoneNumber old) {
+  	super(old);
+       	this.description = old.description;
+    }
 
-	public String toString() {return description + ": " + super.toString();}
-
-    	public static ExtendedPhoneNumber read(Scanner scanner) {
-	    if (!scanner.hasNext()) 
+    public String toString() {return description + ": " + super.toString();}
+	
+    public static ExtendedPhoneNumber read(Scanner scanner) {
+    	if (!scanner.hasNext()) 
 	            return null;
-	    String description = scanner.next();
-            String number = scanner.next();
-            return new ExtendedPhoneNumber(description, number);
-	}
+        String description = scanner.next();
+        String number = scanner.next();
+        return new ExtendedPhoneNumber(description, number);
+    }
 }
 
 class PhonebookEntry { 
